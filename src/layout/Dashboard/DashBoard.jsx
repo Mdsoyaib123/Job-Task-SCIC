@@ -1,18 +1,21 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { IoHomeSharp } from "react-icons/io5";
 import { useContext } from "react";
-import sourav from "../assets/sourav.jpg";
+import sourav from "../../assets/sourav.jpg";
 import { CgProfile } from "react-icons/cg";
 import { IoIosCreate } from "react-icons/io";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
-import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import './DashBoard.css'
+import { FaTasks } from "react-icons/fa";
+
 
 const DashBoard = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="md:flex lg:flex p-4">
-      <div className=" lg:w-80   md:min-h-screen bg-[#e61710]">
+    <div className="md:flex gap-10 lg:flex p-4 ">
+      <div className=" lg:w-80 bg-[#e61710]  md:min-h-screen  bgImage">
         <div className="md:flex gap-3 items-center justify-center p-4">
           <div>
             <img
@@ -32,13 +35,13 @@ const DashBoard = () => {
               <CgProfile></CgProfile>User Profile
             </NavLink>
           </li> */}
-          <li className="text-white">
+          <li className="text-white ">
             <NavLink to="/dashBoard/taskManagement">
-              <IoHomeSharp></IoHomeSharp> Task Management 
+              <FaTasks></FaTasks> Task Management 
             </NavLink>
           </li>
     
-          <div className="divider text-gray-900 mx-4"></div>
+          {/* <div className="divider text-gray-900 mx-4"></div> */}
 
           <li className="text-white">
             <NavLink to="/">
@@ -46,9 +49,10 @@ const DashBoard = () => {
             </NavLink>
           </li>
         </ul>
+        <hr className="  md:hidden  " />
       </div>
 
-      <div className="flex-1 py-10 px-8">
+      <div className="flex-1 py-10 px-8 bgImage">
         <Outlet></Outlet>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../../Provider/AuthProvider/AuthProvider";
+import {  NavHashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,22 +10,31 @@ const Navbar = () => {
   };
   const links = (
     <div className="grid grid-cols-1 lg:flex  gap-8 font-semibold text-lg items-center  text-black">
-      <NavLink
-        to={"/"}
+      <NavHashLink
+        to={"/#home"}
         className={({ isActive }) =>
-          isActive ? " font-bold text-lg text-black    " : ""
+          isActive ? "  text-lg    " : ""
         }
       >
         <button>Home</button>
-      </NavLink>
-      <NavLink
-        to={"/about"}
+      </NavHashLink>
+      <NavHashLink
+        to={"/#faq"}
         className={({ isActive }) =>
-          isActive ? " font-bold text-lg text-black    " : ""
+          isActive ? " text-lg    " : ""
         }
       >
-        <button>About</button>
-      </NavLink>
+        <button>FAQ</button>
+      </NavHashLink>
+      <NavHashLink
+        to={"/#contact"}
+        className={({ isActive }) =>
+          isActive ? "  text-lg    " : ""
+        }
+      >
+        <button>Contact</button>
+      </NavHashLink>
+      
 
       {user ? (
         <div className="  ">
@@ -69,7 +79,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="navbar z-10 flex justify-between items-center py-3 px-10 max-w-[2520px] mx-auto">
+    <div className="navbar z-10 flex justify-between items-center py-3 px-2 md:px-16   fixed  w-full lg:max-w-[2520px] mx-auto shadow-lg bg-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost  lg:hidden">
@@ -96,11 +106,11 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className="hidden md:flex lg:flex" to={"/"}>
-          <h1>Logo</h1>
+          <h1><img className="w-32" src="https://i.ibb.co/bL1zT0F/dtm-logo.png" alt="" /></h1>
         </Link>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
     </div>

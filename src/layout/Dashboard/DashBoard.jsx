@@ -12,15 +12,15 @@ import { FaTasks } from "react-icons/fa";
 
 const DashBoard = () => {
   const { user } = useContext(AuthContext);
-
+  // console.log(user);
   return (
     <div className="md:flex gap-10 lg:flex p-4 ">
-      <div className=" lg:w-80 bg-[#e61710]  md:min-h-screen  bgImage">
+      <div className=" lg:w-80   md:min-h-screen  bgImage">
         <div className="md:flex gap-3 items-center justify-center p-4">
           <div>
             <img
               className="rounded-full w-40 md: mx-auto"
-              src={sourav}
+              src={user.photoURL}
               alt=""
             />
           </div>
